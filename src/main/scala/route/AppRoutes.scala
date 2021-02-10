@@ -1,15 +1,30 @@
 package route
 
 import akka.http.scaladsl.model.StatusCodes
+import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import akka.http.scaladsl.server.Directives._ // enables "put"
+import service.ItemService._
 
 trait AppRoutes {
-  def route: Route = {
-    put {
-      path("/item" / Segment) { itemId =>
-        complete(StatusCodes.OK, s"itemId $itemId received")
+  def route: Route =
+    concat(
+      put {
+        path("hello" / Segment) { msg =>
+          hello(msg)
+          complete(StatusCodes.OK)
+        }
+      },
+      path("item" / Segment) { itemId =>
+        concat(
+          put {
+            addItem(itemId)
+            complete(StatusCodes.OK, s"itemId $itemId added")
+          },
+          delete {
+            removeItem(itemId)
+            complete(StatusCodes.OK, s"itemId $itemId removed")
+          }
+        )
       }
-    }
-  }
+    )
 }
