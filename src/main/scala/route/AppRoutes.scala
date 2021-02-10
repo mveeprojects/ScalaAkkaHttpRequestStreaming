@@ -18,11 +18,11 @@ trait AppRoutes {
         concat(
           put {
             addItem(itemId)
-            complete(StatusCodes.OK, s"itemId $itemId added")
+            complete(StatusCodes.Created, s"itemId $itemId added")
           },
           delete {
             removeItem(itemId)
-            complete(StatusCodes.OK, s"itemId $itemId removed")
+            complete(StatusCodes.NoContent, s"itemId $itemId removed")
           }
         )
       }
