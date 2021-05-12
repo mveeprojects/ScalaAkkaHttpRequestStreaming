@@ -1,11 +1,12 @@
 # Scala Akka Http Request Streaming
 
-Hello route:
-`curl -X PUT http://localhost:8080/hello/howareyou`
+The intention of this codebase is to figure out how to feed Akka HTTP requests to an Akka Source.
 
-Add item route: `curl -X PUT http://localhost:8080/item/abc`
+This has been achieved by feeding Akka HTTP requests to an Actor which then offers the request information (a String) to a queue (Source.queue).
 
-Delete item route: `curl -X DELETE http://localhost:8080/item/abc`
+### Routes
+* Add item: `curl -X PUT http://localhost:8080/item/abc`
+* Delete item: `curl -X DELETE http://localhost:8080/item/abc`
 
 ### Sources:
 * https://alvinalexander.com/scala/akka-actors-introduction-tutorial-101/
