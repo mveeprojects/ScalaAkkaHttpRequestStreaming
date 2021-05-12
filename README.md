@@ -2,7 +2,7 @@
 
 The intention of this codebase is to figure out how to feed Akka HTTP requests to an Akka Source.
 
-This has been achieved by feeding Akka HTTP requests to an Actor which then offers the request information (a String) to a queue (Source.queue).
+This has been achieved by feeding Akka HTTP requests to an Actor which then offers the request information (a String) to a queue (`Source.queue`).
 
 ![request-streaming-diagram](diagram/ScalaAkkaHttpRequestStreaming.png)
 
