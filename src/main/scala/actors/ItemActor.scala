@@ -19,15 +19,15 @@ class ItemActor extends Actor with Logging {
     case AddItem(itemId) =>
       val response = s"Adding $itemId"
       logger.info(s"[ACTOR] $response")
-      queue.offer(response)
+      itemQueue.offer(response)
     case RemoveItem(itemId) =>
       val response = s"Removing $itemId"
       logger.info(s"[ACTOR] $response")
-      queue.offer(response)
+      itemQueue.offer(response)
     case _ => logger.error("Invalid input provided")
   }
 
-  val queue: SourceQueueWithComplete[String] = Source
+  val itemQueue: SourceQueueWithComplete[String] = Source
     .queue[String](bufferSize, OverflowStrategy.backpressure)
     .throttle(elementsToProcess, per)
     .toMat(Sink.foreach(x => logger.info(s"[QUEUE] $x")))(Keep.left)
