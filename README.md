@@ -8,7 +8,7 @@ This has been achieved by feeding Akka HTTP requests to an Actor which then offe
 
 I considered using `Source.actorRef` initially (instead of `Source.queue`), however this did not offer backpressure, therefore I felt that `Source.queue` was generally a better option.
 
-I also looked into actorRefWithBackpressure however I couldn't figure out how to get this to work without also needing an accompanying `Sink.actorRefWithBackpressure` (see example 10 [here](https://www.programcreek.com/scala/akka.stream.OverflowStrategy)), which defeated the object of this exercise.
+I also looked into `Source.actorRefWithBackpressure` however I couldn't figure out how to get this to work without also needing an accompanying `Sink.actorRefWithBackpressure` (see example 10 [here](https://www.programcreek.com/scala/akka.stream.OverflowStrategy)), which defeated the object of this exercise.
 
 ### Routes
 * Add item: `curl -X PUT http://localhost:8080/item/abc`
