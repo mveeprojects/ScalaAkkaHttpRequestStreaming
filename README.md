@@ -14,7 +14,7 @@ I also looked into `Source.actorRefWithBackpressure` however I couldn't figure o
 * Add item: `curl -X PUT http://localhost:8080/item/abc`
 * Delete item: `curl -X DELETE http://localhost:8080/item/abc`
 
-### Sources:
+### Sources
 * https://alvinalexander.com/scala/akka-actors-introduction-tutorial-101/
 * https://doc.akka.io/docs/akka/current/stream/operators/Source/actorRef.html
 * https://doc.akka.io/docs/akka/current/stream/operators/Source/actorRefWithBackpressure.html
