@@ -12,5 +12,4 @@ This has been achieved by feeding Akka HTTP requests to an Actor which then offe
 
 ### Sources:
 * https://alvinalexander.com/scala/akka-actors-introduction-tutorial-101/
-* https://doc.akka.io/docs/akka/current/stream/operators/Source/actorRefWithBackpressure.html
 * https://doc.akka.io/docs/akka/current/stream/actor-interop.html#source-queue
