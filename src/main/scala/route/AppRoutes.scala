@@ -10,7 +10,7 @@ trait AppRoutes {
     path("item" / Segment) { itemId =>
       concat(
         put {
-          addItem(itemId) // calling the actorRef receive method essentially
+          addItem(itemId)
           complete(StatusCodes.Created, s"itemId $itemId added")
         },
         delete {
